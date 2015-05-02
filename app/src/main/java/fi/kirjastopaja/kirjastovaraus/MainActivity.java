@@ -15,7 +15,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends ActionBarActivity {
 
-    private static final String BASE_URL = "http://varaus.kirjastopaja.fi/Web/?";
+    private static final String HUVITUS_URL = "http://varaus.kirjastopaja.fi/Web/schedule_huvitus.php?&sid=3&rid=4";
 
     private WebView mWebView;
 
@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
         });
 
         // load the page every 30 secs
-            mWebView.loadUrl(BASE_URL);
+            mWebView.loadUrl(HUVITUS_URL);
         new ReloadWebView(this, 30, mWebView);
 
 
