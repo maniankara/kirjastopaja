@@ -16,6 +16,8 @@ import android.webkit.WebViewClient;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import fi.kirjastopaja.kirjastonvaraus.listener.LongClickWebViewListener;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -57,11 +59,18 @@ public class MainActivity extends ActionBarActivity {
             decorView.setSystemUiVisibility(uiOptions);
         }
 
+        setLongClickLockSettings();
+
         // load the page every 30 secs
             mWebView.loadUrl(HUVITUS_URL);
         new ReloadWebView(this, 30, mWebView);
 
 
+    }
+
+    private void setLongClickLockSettings() {
+        mWebView.setLongClickable(true);
+        mWebView.setOnLongClickListener(new LongClickWebViewListener(this));
     }
 
 
@@ -86,6 +95,7 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
     // courtesy: http://stackoverflow.com/questions/8209078/how-to-refresh-the-webview-in-android-using-a-timer
     protected class ReloadWebView extends TimerTask {
