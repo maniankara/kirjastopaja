@@ -70,7 +70,9 @@ public class MainActivity extends ActionBarActivity {
 
     private void setLongClickLockSettings() {
         mWebView.setLongClickable(true);
-        mWebView.setOnLongClickListener(new LongClickWebViewListener(this));
+        mWebView.setOnLongClickListener(
+                new LongClickWebViewListener(this,
+                        getFragmentManager(), getLayoutInflater()));
     }
 
 
